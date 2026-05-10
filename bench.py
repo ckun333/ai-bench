@@ -141,20 +141,38 @@ def fmt_report(stats):
     diff = abs(stats["actual_qps"] - stats["target_qps"])
     ok = diff / max(stats["target_qps"], 1) < 0.15
 
+    # Analysis
+    ratio = stats['actual_qps'] / max(stats['target_qps'], 1)
+    lines = []
+    lines.append(f"Throughput: {'✅ 达标' if abs(ratio-1)<0.1 else '⚠️ 偏差' + ('偏高' if ratio>1 else '偏低')} (目标 {stats['target_qps']} qps，实际 {stats['actual_qps']} qps，{ratio*100:.0f}%)")
+    lines.append(f"延迟分布：中位数 {l['p50']}ms，90% 请求在 {l['p90']}ms 内完成，"
+                 f"99% 请求在 {l['p99']}ms 内完成")
+    if l['min'] < l['p50'] * 0.3:
+        lines.append(f"最快响应 {l['min']}ms，说明大多数请求处理非常快")
+    if l['max'] > l['p99'] * 3:
+        lines.append(f"最慢响应 {l['max']}ms 显著偏离 P99（{l['p99']}ms），存在长尾延迟")
+    if stats['error_pct'] == 0:
+        lines.append(f"错误率 0% ✅ —— 接口稳定")
+    else:
+        lines.append(f"错误率 {stats['error_pct']}% ⚠️ —— 需要关注")
+    analysis = "\n".join(lines)
+
     return (
         "## ai-bench Report\n\n"
-        "### Summary\n"
-        "| Target QPS | Actual QPS | Status | Duration | Total Req | Errors | Error % |\n"
-        "|-----------|-----------|--------|---------|----------|-------|--------|\n"
+        "### 结果\n"
+        "| 目标 QPS | 实际 QPS | 状态 | 耗时 | 请求总数 | 错误数 | 错误率 |\n"
+        "|---------|---------|------|------|---------|-------|-------|\n"
         f"| {stats['target_qps']} | {stats['actual_qps']} "
         f"| {'✅' if ok else '⚠️'} | {stats['duration']}s "
         f"| {stats['total_requests']} | {stats['errors']} "
         f"| {stats['error_pct']}% |\n\n"
-        "### Latency (ms)\n"
-        "| Avg | P50 | P90 | P95 | P99 | Min | Max |\n"
-        "|-----|-----|-----|-----|-----|-----|-----|\n"
+        "### 延迟 (ms)\n"
+        "| 平均 | 中位数 | P90 | P95 | P99 | 最小 | 最大 |\n"
+        "|------|--------|-----|-----|-----|------|------|\n"
         f"| {l['avg']} | {l['p50']} | {l['p90']} | {l['p95']} "
-        f"| {l['p99']} | {l['min']} | {l['max']} |\n"
+        f"| {l['p99']} | {l['min']} | {l['max']} |\n\n"
+        "### 分析\n"
+        f"{analysis}\n"
     )
 
 
