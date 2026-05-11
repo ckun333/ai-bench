@@ -5,8 +5,35 @@ AI-friendly HTTP benchmark tool。
 给它一个 URL 和目标 QPS，它帮你压测、出报告，不需要理解线程数、ramp-up、pacing 这些底层参数。
 
 ```bash
-# 一行命令，开始压测
 ai-bench --url http://your-api:8080/api/list --qps 500 --duration 30
+```
+
+## For Humans
+
+Paste this into your terminal to install ai-bench:
+
+```bash
+curl -sL https://raw.githubusercontent.com/ckun333/ai-bench/main/bench.py -o ~/.local/bin/ai-bench
+chmod +x ~/.local/bin/ai-bench
+alias ai-bench=~/.local/bin/ai-bench
+```
+
+Or run the installer:
+
+```bash
+curl -sL https://raw.githubusercontent.com/ckun333/ai-bench/main/install.sh | bash
+```
+
+## For AI Agents
+
+Tell your agent to run:
+
+```bash
+# If bench.py is already in the project:
+python /path/to/ai-bench/bench.py --url ... --qps ... --duration ...
+
+# Or install via curl first:
+curl -sL https://raw.githubusercontent.com/ckun333/ai-bench/main/bench.py -o ~/.local/bin/ai-bench && chmod +x ~/.local/bin/ai-bench && ai-bench --url ... --qps 500 --duration 60
 ```
 
 ---
