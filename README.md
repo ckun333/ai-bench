@@ -90,38 +90,6 @@ ai-bench -u https://api.example.com/ping -q 300 -d 10 --warmup 0
 
 ---
 
-## Roadmap
-
-### v1.0 ✅ 当前
-- [x] URL / QPS / Duration 控制
-- [x] 自动线程数计算
-- [x] 预热阶段
-- [x] Header / Body / Method 支持
-- [x] Markdown 报告
-- [x] urllib3 连接池 + 标准库降级
-- [x] OpenClaw Skill 集成
-
-### v1.5 🔜 短期
-- [ ] 场景配置文件（JSON/YAML，多端点 + 参数化）
-- [ ] 渐增式 ramp-up（QPS 从低到高渐变）
-- [ ] CSV / JSON 输出（CI 集成用）
-- [ ] 响应体校验（断言状态码、关键字等）
-
-### v2.0 🚀 中期
-- [ ] Cookie / Session 维持
-- [ ] Auth token 轮换
-- [ ] Think time 模拟真实用户行为
-- [ ] 多场景并发测试
-- [ ] 错误详情记录（哪些请求失败了）
-
-### v3.0 🌟 远期
-- [ ] Proxy 支持
-- [ ] SLA 断言（P99 < 500ms 自动告警）
-- [ ] Web 实时看板
-- [ ] 分布式压测（多节点协同）
-
----
-
 ## 协议
 
 MIT
