@@ -2,24 +2,16 @@
 
 AI-friendly HTTP benchmark tool for OpenClaw agents.
 
-## For Agents
-
-Paste this into your session to install ai-bench:
-
-```bash
-curl -sL https://raw.githubusercontent.com/ckun333/ai-bench/main/bench.py -o ~/.local/bin/ai-bench
-chmod +x ~/.local/bin/ai-bench
-# 验证
-ai-bench --help
-```
-
-Or use the full installer:
-
-```bash
-curl -sL https://raw.githubusercontent.com/ckun333/ai-bench/main/install.sh | bash
-```
-
 ## Description
+
+This skill is pre-installed — bench.py is at `skills/ai-bench/bench.py`.
+Call it directly with `python skills/ai-bench/bench.py` or use the `ai-bench` alias if installed to PATH.
+
+On first use, ensure urllib3 is available:
+
+```bash
+pip install urllib3
+```
 
 单文件 Python 压测工具。给它 URL + 目标 QPS + 时长，直接出报告。
 依赖只有 urllib3（通常预装），无 urllib3 时自动降级为标准库。
