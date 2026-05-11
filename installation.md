@@ -1,36 +1,36 @@
-# ai-bench Installation
+# ai-bench 安装说明
 
-Single-file Python tool, no dependencies beyond urllib3 (usually pre-installed).
+单文件 Python 工具，唯一依赖 urllib3（通常已预装）。
 
-## Install
+## 安装
 
-Run the following command in your terminal:
+在终端执行以下命令：
 
 ```bash
 curl -sL https://raw.githubusercontent.com/ckun333/ai-bench/main/bench.py -o ~/.local/bin/ai-bench
 chmod +x ~/.local/bin/ai-bench
 ```
 
-## Verify
+## 验证
 
 ```bash
 ai-bench --help
 ```
 
-## Dependencies
+## 依赖
 
-- urllib3 (recommended, provides connection pool, usually pre-installed)
-- Falls back to urllib.request (stdlib) if urllib3 is missing
-- form-data requires urllib3
+- urllib3（推荐，提供连接池，通常已预装）
+- 无 urllib3 时自动降级为标准库 urllib.request（无连接池）
+- form-data 模式需要 urllib3
 
 ```bash
 pip install urllib3
 ```
 
-## Usage
+## 用法
 
 ```bash
 ai-bench --url http://host/api --qps 500 --duration 60
 ```
 
-See README.md for full usage examples.
+完整用法见 README.md。
