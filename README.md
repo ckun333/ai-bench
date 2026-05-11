@@ -53,10 +53,10 @@ Throughput: ✅ 达标 (目标 500 qps，实际 497.7 qps，100%)
 
 | 场景 | 你告诉 AI | AI 执行 |
 |------|----------|---------|
-| POST + JSON | 压测登录接口，200 qps 跑 30 秒 | `ai-bench -u www.xxx.com/api/login -q 200 -d 30 -m POST --json '{"user":"admin","pass":"123"}'` |
-| 表单提交 | 压测提交接口，100 qps 跑 1 分钟 | `ai-bench -u www.xxx.com/api/submit -q 100 -d 60 -m POST --form "name=test" --form "type=1"` |
-| PUT 更新 | 压测修改接口，100 qps | `ai-bench -u www.xxx.com/api/item/1 -q 100 -d 30 -m PUT --json '{"name":"new"}'` |
-| DELETE | 压测删除接口 | `ai-bench -u www.xxx.com/api/item/1 -q 100 -d 30 -m DELETE` |
-| 带鉴权 | 带 token 压测列表接口 | `ai-bench -u www.xxx.com/api/list -q 500 -d 60 -H "Authorization: Bearer tok_xxx"` |
+| POST + JSON | 压测登录接口 www.xxx.com/api/login，POST 请求，body 传 JSON `{"user":"admin","pass":"123"}`，200 qps，跑 30 秒 | `ai-bench -u www.xxx.com/api/login -q 200 -d 30 -m POST --json '{"user":"admin","pass":"123"}'` |
+| 表单提交 | 压测提交表单接口 www.xxx.com/api/submit，POST 请求，表单字段 name=test、type=1，100 qps，跑 1 分钟 | `ai-bench -u www.xxx.com/api/submit -q 100 -d 60 -m POST --form "name=test" --form "type=1"` |
+| PUT 更新 | 压测更新接口 www.xxx.com/api/item/1，PUT 请求，body 传 JSON `{"name":"new"}`，100 qps，跑 30 秒 | `ai-bench -u www.xxx.com/api/item/1 -q 100 -d 30 -m PUT --json '{"name":"new"}'` |
+| DELETE | 压测删除接口 www.xxx.com/api/item/1，DELETE 请求，100 qps，跑 30 秒 | `ai-bench -u www.xxx.com/api/item/1 -q 100 -d 30 -m DELETE` |
+| 带鉴权 | 压测列表接口 www.xxx.com/api/list，GET 请求，带 Authorization header `Bearer tok_xxx`，500 qps，跑 1 分钟 | `ai-bench -u www.xxx.com/api/list -q 500 -d 60 -H "Authorization: Bearer tok_xxx"` |
 
 ## MIT
