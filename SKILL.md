@@ -67,6 +67,8 @@ ai-bench -u http://host/api -q 500 -d 30 \
 
 ## Output
 
+工具输出的就是原生 Markdown，直接展示在对话中即可：
+
 ### 结果
 | 目标 QPS | 实际 QPS | 状态 | 耗时 | 请求总数 | 错误数 | 错误率 |
 |---------|---------|------|------|---------|-------|-------|
@@ -78,7 +80,7 @@ ai-bench -u http://host/api -q 500 -d 30 \
 | 12.6 | 8.7 | 21.9 | 26.2 | 55.2 | 4.9 | 397.6 |
 
 ### 分析
-自动附带性能分析文本，AI 可直接解读。
+Automatically generated performance analysis, AI can read directly.
 
 ## Algorithm
 
