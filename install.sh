@@ -1,15 +1,15 @@
 #!/usr/bin/env bash
-# ai-bench installer
-# Usage: bash install.sh
-
+# ai-bench installer — run directly:
+#   curl -sL https://raw.githubusercontent.com/ckun333/ai-bench/main/install.sh | bash
 set -e
 
-SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 BIN="${HOME}/.local/bin"
 mkdir -p "$BIN"
 
-ln -sf "${SCRIPT_DIR}/bench.py" "${BIN}/ai-bench"
-chmod +x "${SCRIPT_DIR}/bench.py"
+echo "⬇️  Downloading ai-bench…"
+curl -sL -o "${BIN}/ai-bench" \
+  https://raw.githubusercontent.com/ckun333/ai-bench/main/bench.py
+chmod +x "${BIN}/ai-bench"
 
 echo "✅ ai-bench installed → ${BIN}/ai-bench"
 echo "   Run: ai-bench --help"
