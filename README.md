@@ -6,10 +6,8 @@ AI-friendly HTTP benchmark tool。给一个 URL 和目标 QPS，直接出结果�
 
 Paste this into your AI agent session:
 
-```
 Install ai-bench by following the instructions here:
 https://raw.githubusercontent.com/ckun333/ai-bench/main/installation.md
-```
 
 Alternative, install it yourself:
 
