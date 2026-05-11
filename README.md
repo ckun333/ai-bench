@@ -6,11 +6,10 @@ AI-friendly HTTP benchmark tool。给一个 URL 和目标 QPS，直接出结果�
 
 Paste this into your AI agent session:
 
-> 安装 ai-bench 压测工具，执行以下命令：
-> ```bash
-> curl -sL https://raw.githubusercontent.com/ckun333/ai-bench/main/bench.py -o ~/.local/bin/ai-bench && chmod +x ~/.local/bin/ai-bench
-> ```
-> 安装后帮我测试接口压测。
+```
+Install ai-bench by following the instructions here:
+https://raw.githubusercontent.com/ckun333/ai-bench/main/installation.md
+```
 
 Alternative, install it yourself:
 
