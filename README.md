@@ -2,7 +2,7 @@
 
 AI-friendly HTTP benchmark tool。给一个 URL 和目标 QPS，直接出结果和分析。
 
-## For Humans
+## For Humans — 在自己的终端执行
 
 ```bash
 curl -sL https://raw.githubusercontent.com/ckun333/ai-bench/main/bench.py -o ~/.local/bin/ai-bench
@@ -10,7 +10,7 @@ chmod +x ~/.local/bin/ai-bench
 ai-bench --help
 ```
 
-## For AI Agents
+## For AI Agents — 把下面这段粘贴到和 AI 的对话里
 
 ```bash
 curl -sL https://raw.githubusercontent.com/ckun333/ai-bench/main/bench.py -o ~/.local/bin/ai-bench && chmod +x ~/.local/bin/ai-bench
