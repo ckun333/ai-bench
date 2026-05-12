@@ -288,7 +288,6 @@ def main():
             maxsize=200,
             retries=urllib3.Retry(0),
             timeout=urllib3.Timeout(connect=10, read=30),
-            cert_reqs="CERT_NONE",
         )
 
     # ── probe ────────────────────────────────────────────────────
