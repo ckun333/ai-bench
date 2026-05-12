@@ -1,3 +1,8 @@
+---
+name: ai-bench
+description: AI-friendly HTTP benchmark tool for OpenClaw agents. 压测工具，支持QPS模式和并发模式，自动探测延迟、预热、生成Markdown报告。
+---
+
 # ai-bench
 
 AI-friendly HTTP benchmark tool for OpenClaw agents.
